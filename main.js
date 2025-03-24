@@ -5,20 +5,18 @@ const wayt = document.querySelector(".darc__mod");
 const body = document.body;
 let allCountries = [];
 
-// Dark mode-ni saqlash uchun localStorage ishlatish
 if (localStorage.getItem("darkMode") === "enabled") {
   body.classList.add("dark-mode");
 }
 
-// Dark mode tugmalari
 dark.addEventListener("click", () => {
   body.classList.add("dark-mode");
-  localStorage.setItem("darkMode", "enabled"); // Saqlash
+  localStorage.setItem("darkMode", "enabled");
 });
 
 wayt.addEventListener("click", () => {
   body.classList.remove("dark-mode");
-  localStorage.removeItem("darkMode"); // O‘chirish
+  localStorage.removeItem("darkMode"); 
 });
 
 function rendFlag() {
@@ -32,7 +30,6 @@ function rendFlag() {
 }
 
 function displayCountries(countries) {
-  // innerHTML orqali butun tarkibni yaratish (tezroq ishlaydi)
   ota.innerHTML = countries
     .map((country) => `
       <li class="country-item">
@@ -43,7 +40,6 @@ function displayCountries(countries) {
     .join("");
 }
 
-// Qidiruv funksiyasi
 inp.addEventListener("input", () => {
   const val = inp.value.toLowerCase();
   const filteredCountries = allCountries.filter((country) =>
